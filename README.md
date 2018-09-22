@@ -1,2 +1,3 @@
-# starter-pack-challenge-11
-Starter Pack for Challenge 11
+# Starter Pack for week 6
+
+Starter pack for challenge 11

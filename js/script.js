@@ -38,15 +38,15 @@ function switchChannel(channelObject) {
     document.getElementById('channel-name').innerHTML = channelObject.name;
 
     // change the channel location using object property
-    document.getElementById('channel-location').innerHTML = 'by <a href="http://w3w.co/'
+    document.getElementById('channel-location').innerHTML = 'by <a href="https://w3w.co/'
         + channelObject.createdBy
         + '" target="_blank"><strong>'
         + channelObject.createdBy
         + '</strong></a>';
 
     //#9 selector adjusted for #btns #str
-    $('#channel-star i').removeClass('fa-star fa-star-o');
-    $('#channel-star i').addClass(channelObject.starred ? 'fa-star' : 'fa-star-o');
+    $('#channel-star i').removeClass('fas far');
+    $('#channel-star i').addClass(channelObject.starred ? 'fas' : 'far');
 
 
     /* highlight the selected #channel.
@@ -62,15 +62,15 @@ function switchChannel(channelObject) {
 function star() {
     // Toggling star
     // #9 selector adjusted for #btns #str
-    $('#channel-star i').toggleClass('fa-star');
-    $('#channel-star i').toggleClass('fa-star-o');
+    $('#channel-star i').toggleClass('far');
+    $('#channel-star i').toggleClass('fas');
 
     // toggle star also in data model
     currentChannel.starred = !currentChannel.starred;
 
     // toggle star also in list
-    $('#channels li:contains(' + currentChannel.name + ') .fa').removeClass('fa-star fa-star-o');
-    $('#channels li:contains(' + currentChannel.name + ') .fa').addClass(currentChannel.starred ? 'fa-star' : 'fa-star-o');
+    $('#channels li:contains(' + currentChannel.name + ') .fa').removeClass('fas far');
+    $('#channels li:contains(' + currentChannel.name + ') .fa').addClass(currentChannel.starred ? 'fas' : 'far');
 }
 
 /**
@@ -302,8 +302,8 @@ function createChannelElement(channelObject) {
      <li>
      {{ name }}
         <span class="channel-meta">
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-chevron-right"></i>
+            <i class="far fa-star"></i>
+            <i class="fas fa-chevron-right"></i>
         </span>
      </li>
      */
@@ -316,14 +316,14 @@ function createChannelElement(channelObject) {
 
     // The star including star functionality.
     // Since we don't need any further children, we don't need any variables (references)
-    $('<i>').addClass('fa').addClass(channelObject.starred ? 'fa-star' : 'fa-star-o').appendTo(meta);
+    $('<i>').addClass('fa-star').addClass(channelObject.starred ? 'fas' : 'far').appendTo(meta);
 
     // boxes for some additional metadata
     $('<span>').text(channelObject.expiresIn + ' min').appendTo(meta);
     $('<span>').text(channelObject.messageCount + ' new').appendTo(meta);
 
     // The chevron
-    $('<i>').addClass('fa').addClass('fa-chevron-right').appendTo(meta);
+    $('<i>').addClass('fas').addClass('fa-chevron-right').appendTo(meta);
 
     // return the complete channel
     return channel;

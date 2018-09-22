@@ -174,7 +174,7 @@ li .channel-meta span {
     align-self:center;
 }
 
-li i.fa {
+li i.fas, li i.far {
     font-size: 24px;
 }
 

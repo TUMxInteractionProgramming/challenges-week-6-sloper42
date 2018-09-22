@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="css/style.css"/>
 
     <!-- embed jquery -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <!-- embed font awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     <!-- embed external JavaScript file for channel objects -->
     <script src="js/channels.js"></script>
@@ -48,24 +48,24 @@
     </ul>
 
     <!-- #9 #flt #btn: FLOATING ACTION BUTTON -->
-    <button id="add-channel" class="accent shadow--6dp" onclick="initCreationMode()"><i class="fa fa-plus"></i></button>
+    <button id="add-channel" class="accent shadow--6dp" onclick="initCreationMode()"><i class="fas fa-plus"></i></button>
 
     <!-- TAB BAR -->
     <!-- #9 #shdw #elv: tab bar goes 4dp high -->
     <div id="tab-bar" class="shadow--4dp">
         <!-- #10 adjust the #sort order on #click -->
         <button class="selected" id="tab-new" onclick="selectTab('#tab-new'); listChannels(compareNew)">
-            <i class="fa fa-lightbulb-o"></i>
+            <i class="far fa-lightbulb"></i>
             New
         </button>
         <!-- #10 adjust the #sort order on #click -->
         <button id="tab-trending" onclick="selectTab('#tab-trending'); listChannels(compareTrending)">
-            <i class="fa fa-fire"></i>
+            <i class="fas fa-fire"></i>
             Trending
         </button>
         <!-- #10 adjust the #sort order on #click -->
         <button id="tab-favorites" onclick="selectTab('#tab-favorites'); listChannels(compareFavorites)">
-            <i class="fa fa-star"></i>
+            <i class="fas fa-star"></i>
             Favorites
         </button>
     </div>
@@ -81,7 +81,7 @@
         <small id="channel-location">by <strong>cheeses.yard.applies</strong></small>
         <!-- #9 #btns #str: a new primary button now contains the icon -->
         <button id="channel-star" class="primary" onclick="star()">
-            <i class="fa fa-star"></i>
+            <i class="fas fa-star"></i>
         </button>
     </h1>
 
@@ -89,7 +89,7 @@
     <h1 id="app-bar-create" class="shadow--4dp">
         <!-- #10 #new input field for channel #name -->
         <input type="text" id="new-channel" placeholder="Enter a #ChannelName"/>
-        <button class="primary" onclick="abortCreationMode()"><i class="fa fa-close"></i> Abort</button>
+        <button class="primary" onclick="abortCreationMode()"><i class="fas fa-times"></i> Abort</button>
     </h1>
 
     <div id="messages">
@@ -149,14 +149,14 @@
     <div id="chat-bar" class="shadow--4dp">
         <!-- #9 #btns #sml now primary -->
         <button id="emojis-button" class="primary" onclick="toggleEmojis()">
-            <i class="fa fa-smile-o"></i>
+            <i class="far fa-smile"></i>
         </button>
         <!-- #9 #shdw #elv: menu goes 8dp high -->
         <div id="emojis" class="shadow--8dp">&#x1F601; &#x1F602; &#x1F603; &#x1F604; &#x1F605; &#x1F606; &#x1F607;</div>
         <input type="text" placeholder="Message..." maxlength="140" id="message">
         <!-- #9 #btns #snd now accented -->
         <!-- #10 #new: id added to be able to address it -->
-        <button id="button-send" class="accent" onclick="sendMessage()"><i class="fa fa-arrow-right"></i></button>
+        <button id="button-send" class="accent" onclick="sendMessage()"><i class="fas fa-arrow-right"></i></button>
         <!-- #10: #new #styled button for creating a channel -->
         <button id="button-create" class="accent" onclick="createChannel();">CREATE</button>
     </div>
