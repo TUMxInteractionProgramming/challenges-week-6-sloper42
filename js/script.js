@@ -1,7 +1,7 @@
 /* start the external action and say hello */
 console.log("App is alive");
 
-$( document ).ready(function() {
+$( function() {
     // Handler for .ready() called.
     listChannels(compareNew); 
     loadEmojis();
