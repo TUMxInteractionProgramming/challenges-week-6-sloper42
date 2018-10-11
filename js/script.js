@@ -67,11 +67,16 @@ function switchChannel(channelObject, channelElement) {
     /* highlight the selected #channel.
        This is inefficient (jQuery has to search all channel list items), but we'll change it later on */
     $('#channels li').removeClass('selected');
-   /* $('#channels li:contains(' + channelObject.name + ')').addClass('selected');*/
+   $('#channels li:contains(' + channelObject.name + ')').addClass('selected');
+
+   /* FIXME */
    $(channelElement).addClass('seleted');
+   // console.log($(channelElement).html());
 
     /* store selected channel in global variable */
     currentChannel = channelObject;
+
+    showMessages(currentChannel);
 }
 
 /* liking a channel on #click */
@@ -144,8 +149,9 @@ function Message(text) {
     this.own = true;
 }
 
-function showMessages(){
+function showMessages(channel){
 
+    $(channel.messages).each();
 }
 
 function sendMessage() {
@@ -348,7 +354,10 @@ function createChannelElement(channelObject) {
     $('<i>').addClass('fas').addClass('fa-chevron-right').appendTo(meta);
 
     // onclick
-    $('<i>').click(function(){ switchChannel(channelObject,$(this))});
+    $(channel).click(function(){ 
+        switchChannel(channelObject,this);
+    });
+
     // return the complete channel
     return channel;
 }
