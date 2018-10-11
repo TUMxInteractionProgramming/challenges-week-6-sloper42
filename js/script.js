@@ -1,6 +1,21 @@
 /* start the external action and say hello */
 console.log("App is alive");
 
+$( document ).ready(function() {
+    // Handler for .ready() called.
+    listChannels(compareNew); 
+    loadEmojis();
+    console.log("App is initialized");
+  });
+
+  window.setInterval(update,10000);
+
+  function update()
+  { 
+      console.log("Updating message elements...");
+  };
+
+
 /** #10 global #array of channels #arr*/
 var channels = [
     yummy,
@@ -27,7 +42,7 @@ var currentLocation = {
  * Switch channels name in the right app bar
  * @param channelObject
  */
-function switchChannel(channelObject) {
+function switchChannel(channelObject, channelElement) {
     // Log the channel switch
     console.log("Tuning in to channel", channelObject);
 
@@ -52,7 +67,8 @@ function switchChannel(channelObject) {
     /* highlight the selected #channel.
        This is inefficient (jQuery has to search all channel list items), but we'll change it later on */
     $('#channels li').removeClass('selected');
-    $('#channels li:contains(' + channelObject.name + ')').addClass('selected');
+   /* $('#channels li:contains(' + channelObject.name + ')').addClass('selected');*/
+   $(channelElement).addClass('seleted');
 
     /* store selected channel in global variable */
     currentChannel = channelObject;
@@ -126,6 +142,10 @@ function Message(text) {
     this.text = text;
     // own message
     this.own = true;
+}
+
+function showMessages(){
+
 }
 
 function sendMessage() {
@@ -225,6 +245,8 @@ function listChannels(criterion) {
     for (i = 0; i < channels.length; i++) {
         $('#channels ul').append(createChannelElement(channels[i]));
     };
+
+   // switchChannel(currentChannel); FIXME
 }
 
 /**
@@ -325,6 +347,8 @@ function createChannelElement(channelObject) {
     // The chevron
     $('<i>').addClass('fas').addClass('fa-chevron-right').appendTo(meta);
 
+    // onclick
+    $('<i>').click(function(){ switchChannel(channelObject,$(this))});
     // return the complete channel
     return channel;
 }
